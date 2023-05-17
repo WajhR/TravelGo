@@ -7,7 +7,7 @@ type User {
     email: String
     # There is now a field to store the user's password
     password: String
-    skills: [String]!
+    blogs: [String]!
   }
 
   # Set up an Auth type to handle returning data from a profile creating or user login
@@ -26,8 +26,11 @@ type User {
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
-   
+
+    addBlog(profileId: ID!, blog: String!): User
     removeUser(userId: ID!): User
+    removeBlog(userId: ID!, blog: String!): User
+   
     
   }
 `

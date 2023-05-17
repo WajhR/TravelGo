@@ -37,8 +37,29 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
+
+    addBlog: async (parent, { userId, blog }) => {
+      return Profile.findOneAndUpdate(
+        { _id: userId },
+        {
+          $addToSet: { blogs: blog },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+    },
     removeUser: async (parent, { userId }) => {
         return User.findOneAndDelete({ _id: userId });
+      },
+      
+    removeBlog: async (parent, { userId, blog }) => {
+        return User.findOneAndUpdate(
+          { _id: userId },
+          { $pull: { blogs: blog } },
+          { new: true }
+        );
       },
 
         // async createMessage(_, {messageInput: {text, username} }) {

@@ -3,7 +3,7 @@ const TravelGo = () => {
 return (
 <div>
     <h1>Welcome to TravelGo!</h1>
-    <p>Make your prestigious Vaccation with ease.</p>
+    <p>Make your prestigious Vacation with ease.</p>
 </div>
 
 );
