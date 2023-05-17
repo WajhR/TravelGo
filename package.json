@@ -1,0 +1,22 @@
+{
+  "name": "travelgo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./server && npm start",
+    "dev": "concurrently \"cd ./server && npm run dev\" \"cd ./client && npm start\"",
+    "build": "cd ./client && npm run build",
+    "install:client": "cd ./client && npm i",
+    "install:server": "cd ./server && npm i",
+    "install": "npm run install:client && npm run install:server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-errors": "^3.3.1",
+    "concurrently": "^8.0.1"
+  }
+}
