@@ -1,42 +1,34 @@
-const { gql } = require('@apollo/server');
+const { gql } = require('apollo-server-express');
 
-module.exports = gql`
-type Message {
-    text: String
-    createdAt: String
-    createdBy: String
-}
+const typeDefs = gql`
 type User {
-    username: String
+    _id: ID
+    name: String
     email: String
+    # There is now a field to store the user's password
     password: String
-    token: String
-}
+    skills: [String]!
+  }
 
-input MessageInput {
-    text: String
-    username: String
-}
+  # Set up an Auth type to handle returning data from a profile creating or user login
+  type Auth {
+    token: ID!
+    user: User
+  }
 
-input RegisterInput {
-    username: String
-    email: String
-    password: String
-}
+  type Query {
+    users: [User]!
+    user(userId: ID!): User
+  }
 
-input LoginInput {
-    email: String
-    password: String
-}
+  type Mutation {
+    # Set up mutations to handle creating a profile or logging into a profile and return Auth type
+    addUser(name: String!, email: String!, password: String!): Auth
+    login(email: String!, password: String!): Auth
 
-type Query {
-    message(id: ID!): Message
-    user(id: ID!): User
-}
-
-type Mutation {
-    createMessage(messageInput: MessageInput): Message!
-    registerUser(registerUser: RegisterInput): User
-    loginUser(loginInput: LoginInput): User
-}
+   
+    removeUser(userId: ID!): User
+    
+  }
 `
+module.exports = typeDefs;

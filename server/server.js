@@ -1,61 +1,45 @@
-require('dotenv').config();
 const express = require('express');
+const { ApolloServer } = require('apollo-server-express');
+const path = require('path');
+const { authMiddleware } = require('./utils/auth');
+
+const { typeDefs, resolvers } = require('./schema');
 const db = require('./config/connection');
-const session = require('express-session');
 
-const { ApolloServer } = require('@apollo/server');
-const { expressMiddleware } = require('@apollo/server/express4');
-const { ApolloServerPluginDrainHttpServer } = require('@apollo/server/plugin/drainHttpServer');
-const http = require('http');
-const cors = require('cors');
-const { readFileSync } = require('fs');
-const resolvers = require('./schema/resolvers');
-const typeDefs = readFileSync('./schema/typeDefs.js');
-
+const PORT = process.env.PORT || 3001;
 const app = express();
-const httpServer = http.createServer(app);
 
-const api_routes = require('./routes/api_routes');
-const PORT = process.env.PORT || 3333;
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
+});
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.use(express.static('../client/dist'));
-
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: process.env.PORT ? true : false }
-}));
-
-// app.use('/api', api_routes);
-
-async function startServer() {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers,
-    plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
-  });
-  // Ensure we wait for our server to start
-  await server.start();
-
-  app.use(
-    '/',
-    cors(),
-    // expressMiddleware accepts the same arguments:
-    // an Apollo Server instance and optional configuration options
-    expressMiddleware(server, {
-      context: async ({ req }) => ({ session: req.session }),
-    }),
-  );
-
-  await new Promise((resolve) => httpServer.listen({ port: PORT }, resolve));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
 }
 
-db.once('open', async () => {
-  await startServer();
-
-  console.log('Express server running on port %s', PORT);
-  console.log('GraphQL server waiting at /graphql');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
+
+// Create a new instance of an Apollo server with the GraphQL schema
+const startApolloServer = async (typeDefs, resolvers) => {
+  await server.start();
+  server.applyMiddleware({ app });
+
+  db.once('open', () => {
+    app.listen(PORT, () => {
+      console.log(`API server running on port ${PORT}!`);
+      console.log(
+        `Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`
+      );
+    });
+  });
+};
+
+// Call the async function to start the server
+startApolloServer(typeDefs, resolvers);
