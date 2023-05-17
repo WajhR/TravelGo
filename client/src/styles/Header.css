@@ -1,0 +1,32 @@
+/* header styles */
+
+header {
+    display: flex;
+    flex-direction: column;
+    background-color: #222;
+    color: white;
+    height: 75px;
+}
+
+
+/* element that wraps the title and nav */
+.header-wrap {
+    display: flex;
+    flex-direction: column;
+}
+
+/* title styles */
+
+.title-wrap {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0px 0px 0px;
+}
+
+.header-title {
+    margin: 5px 0px 0px 0px
+}
+
