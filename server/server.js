@@ -10,7 +10,7 @@ const http = require('http');
 const cors = require('cors');
 const { readFileSync } = require('fs');
 const resolvers = require('./schema/resolvers');
-const typeDefs = readFileSync('./schema/typeDefs.js', 'utf8');
+const typeDefs = readFileSync('./schema/typeDefs.js');
 
 const app = express();
 const httpServer = http.createServer(app);
