@@ -20,7 +20,7 @@
     right: 0;
     left: -2000px;
     width: 500%;
-    background-image: url(clouds.png);
+    background-image: url(./assets/clouds.png);
     background-repeat: repeat-x;
     animation: clouds 60s linear infinite;
 }
@@ -47,7 +47,7 @@
     right: 0;
     left: -2000px;
     width: 500%;
-    background-image: url(mountains.png);
+    background-image: url(./assets/mountains.png);
     background-repeat: repeat-x;
     animation: clouds 30s linear infinite;
 }
