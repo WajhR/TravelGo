@@ -22,7 +22,7 @@ type User {
   }
 
   type Mutation {
-    # Set up mutations to handle creating a profile or logging into a profile and return Auth type
+    
     addUser(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
 
