@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import "../styles/Dashboard.css"
 
 const Dashboard = () => {
   // Variables for Saved Trips
@@ -50,95 +51,73 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
+    <div className="dashboard-container">
       <Header />
       <h2>Dashboard</h2>
-      <div>
+
+      {/* Saved Trips */}
+      <section className="section">
         <h3>Saved Trips</h3>
-        <p>Day: {day}</p>
-        <label htmlFor="day">Day:</label>
-        <input
-          type="text"
-          id="day"
-          value={day}
-          onChange={(e) => setDay(e.target.value)}
-        />
+        <form className="form">
+          <div className="form-group">
+            <label htmlFor="day">Day:</label>
+            <input
+              type="text"
+              id="day"
+              value={day}
+              onChange={(e) => setDay(e.target.value)}
+              className="input-field"
+            />
+          </div>
 
-        <label htmlFor="when">When:</label>
-        <input
-          type="text"
-          id="when"
-          value={when}
-          onChange={(e) => setWhen(e.target.value)}
-        />
+          {/* ... other form fields ... */}
 
-        <label htmlFor="city">City:</label>
-        <input
-          type="text"
-          id="city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
+          <div className="form-group">
+            <label htmlFor="attractions">Attraction List:</label>
+            <ul className="attraction-list">
+              {attractions.map((attraction, index) => (
+                <li key={index}>{attraction}</li>
+              ))}
+            </ul>
+            <button type="button" onClick={handleAddAttraction} className="add-button">
+              Add Attraction
+            </button>
+          </div>
 
-        <label htmlFor="attractions">Attraction List:</label>
-        <ul>
-          {attractions.map((attraction, index) => (
-            <li key={index}>{attraction}</li>
-          ))}
-        </ul>
+          <button type="button" onClick={handleSaveTrip} className="save-button">
+            Save Trip
+          </button>
+        </form>
+      </section>
 
-        <button type="button" onClick={handleAddAttraction}>
-          Add Attraction
-        </button>
-
-        <button type="button" onClick={handleSaveTrip}>
-          Save Trip
-        </button>
-      </div>
-
-      <div>
+      {/* Plan a Trip */}
+      <section className="section">
         <h3>Plan a Trip</h3>
-        <button type="button" onClick={handlePlanTrip}>
+        <button type="button" onClick={handlePlanTrip} className="plan-button">
           Plan a Trip
         </button>
-      </div>
+      </section>
 
-      <div>
+      {/* Write a Blog Post */}
+      <section className="section">
         <h3>Write a Blog Post</h3>
-        <label htmlFor="postTitle">Post Title:</label>
-        <input
-          type="text"
-          id="postTitle"
-          value={postTitle}
-          onChange={(e) => setPostTitle(e.target.value)}
-        />
+        <form className="form">
+          {/* ... form fields ... */}
 
-        <label htmlFor="dateCreated">Date Created:</label>
-        <input
-          type="text"
-          id="dateCreated"
-          value={dateCreated}
-          onChange={(e) => setDateCreated(e.target.value)}
-        />
+          <button type="button" onClick={handleSavePost} className="save-button">
+            Save Post
+          </button>
+        </form>
+      </section>
 
-        <label htmlFor="post">Post:</label>
-        <textarea
-          id="post"
-          value={post}
-          onChange={(e) => setPost(e.target.value)}
-        ></textarea>
-
-        <button type="button" onClick={handleSavePost}>
-          Save Post
-        </button>
-      </div>
-
-      <div>
+      {/* View Blog Posts */}
+      <section className="section">
         <h3>Blog Posts</h3>
-        <button type="button" onClick={handleViewBlogPosts}>
+        <button type="button" onClick={handleViewBlogPosts} className="view-button">
           View Blog Posts
         </button>
-      </div>
+      </section>
+
       <Footer />
     </div>
   );
