@@ -16,7 +16,8 @@ import Dashboard from "./components/Dashboard";
 import './index.css';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Footer from './components/Footer';
+import Authpage from "./components/Authpage";
+
 // import Header from "./components/Header";
 
 
@@ -60,14 +61,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh"></div>
-       
-        <div className="container">
+        <div className="flex-column justify-flex-start min-100-vh">
           <Routes>
             <Route path="/" element={<Landing />} className="hover-underline-animation"/>
-            <Route path="/TravelGo/Landing" element={<Landing />} className="hover-underline-animation"/>
-            <Route path="/TravelGo/Home" element={<Home />}/>
+            <Route path="/landing" element={<Landing />} className="hover-underline-animation"/>
+            <Route path="/home" element={<Home />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/map" element={<MapSearch />}/>
+            <Route path="/auth" element={<Authpage />}/>
+            <Route path="login" element={<Login />}/>
+            <Route path="signup" element={<Signup />}/>
+            {/* <Route path="/TravelGo/Logout" element={<Logout />}/> */}
+
           </Routes>
+
+        </div>
         </Router>
       </ApolloProvider>
   );

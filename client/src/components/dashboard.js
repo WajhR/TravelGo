@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from './Header';
-import Footer from './Footer';
 import "../styles/Dashboard.css"
 
 const Dashboard = () => {
@@ -53,14 +52,15 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Header />
-      <h2>Dashboard</h2>
 
       {/* Saved Trips */}
       <section className="section">
-        <h3>Saved Trips</h3>
+      <h2 className='dashboard-title'>Dashboard</h2>
+      <section className='form-section'>
         <form className="form">
+        <h3>Saved Trips</h3>
           <div className="form-group">
-            <label htmlFor="day">Day:</label>
+            <label className="input-title" htmlFor="day">Day:</label>
             <input
               type="text"
               id="day"
@@ -69,6 +69,7 @@ const Dashboard = () => {
               className="input-field"
             />
           </div>
+
 
           {/* ... other form fields ... */}
 
@@ -109,6 +110,7 @@ const Dashboard = () => {
           </button>
         </form>
       </section>
+      </section>
 
       {/* View Blog Posts */}
       <section className="section">
@@ -118,7 +120,6 @@ const Dashboard = () => {
         </button>
       </section>
 
-      <Footer />
     </div>
   );
 };
