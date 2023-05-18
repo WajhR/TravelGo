@@ -11,6 +11,19 @@ const resolvers = {
       user: async (parent, { userId }) => {
         return User.findOne({ _id: userId });
       },
+      blogs: async (parent, { name }) => {
+        const params = name ? { name } : {};
+        return Blog.find(params).sort({ createdAt: -1 });
+      },
+      blog: async (parent, { blogId }) => {
+        return Blog.findOne({ _id: blogId });
+      },
+      me: async (parent, args, context) => {
+        if (context.user) {
+          return User.findOne({ _id: context.user._id }).populate('thoughts');
+        }
+        throw new AuthenticationError('You need to be logged in!');
+      },
     },
 
     
@@ -39,7 +52,7 @@ const resolvers = {
     },
 
     addBlog: async (parent, { userId, blog }) => {
-      return Profile.findOneAndUpdate(
+      return User.findOneAndUpdate(
         { _id: userId },
         {
           $addToSet: { blogs: blog },

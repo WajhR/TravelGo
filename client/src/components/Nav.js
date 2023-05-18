@@ -21,7 +21,7 @@ export default function Nav() {
           <a href="#">Login</a>
         </div>
         <div style={linkStyle}>
-          <a href="#">Register</a>
+          <a href="#">Signup</a>
         </div>
         <div style={linkStyle}>
           <a href="#">About</a>
