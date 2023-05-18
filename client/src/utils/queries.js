@@ -19,3 +19,16 @@ export const QUERY_SINGLE_USER = gql`
     }
   }
 `;
+export const QUERY_ME = gql`
+  query me {
+    me {
+      _id
+      name
+      email
+      blogs {
+        _id
+      blog
+      }
+    }
+  }
+`;
