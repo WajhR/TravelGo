@@ -1,14 +1,33 @@
 import React from "react";
-import Header from "./Header";
+import BlogPosts from "./BlogPosts";
+import TripPosts from "./TripPosts";
+import Navigation from "./Navigation";
+import "../styles/Home.css";
+import "../styles/Header.css";
 
+const Home = () => {
+  const posts = ["Post 1", "Post 2", "Post 3"]; //placeholder posts
+  const trips = ["Trip 1", "Trip 2", "Trip 3"]; //placeholder trips
 
-function Home () {
-    return (
-        <>
-        <Header/>
-        
-        </>
-    )
-}
+  return (
+    <div>
+      <Navigation />
+      <div className="home-container">
+        <div className="column">
+          <h2>Blog Posts</h2>
+          <div className="post-column">
+            <BlogPosts posts={posts} />
+          </div>
+        </div>
+        <div className="column">
+          <h2>Trip Posts</h2>
+          <div className="post-column">
+            <TripPosts trips={trips} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Home;
