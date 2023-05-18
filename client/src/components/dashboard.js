@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Header from './Header';
+import Footer from './Footer';
 
 const Dashboard = () => {
   // Variables for Saved Trips
@@ -49,6 +51,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Header />
       <h2>Dashboard</h2>
       <div>
         <h3>Saved Trips</h3>
@@ -136,6 +139,7 @@ const Dashboard = () => {
           View Blog Posts
         </button>
       </div>
+      <Footer />
     </div>
   );
 };
