@@ -17,7 +17,7 @@ const Landing = () => {
         <div className="flame flame2"></div>
 
         <div className="mountains"></div>
-        <Link as={Link} to="/TravelGo/Home">
+        <Link as={Link} to="/auth">
             <button className="lets-go-button">Let's Go!</button>
         </Link>
     </div>

@@ -32,14 +32,14 @@ class AuthService {
   login(idToken) {
     // Saves user token to localStorage and reloads the application for logged in status to take effect
     localStorage.setItem('id_token', idToken);
-    window.location.assign('/TravelGo/Home');
+    window.location.assign('/home');
   }
 
   logout() {
     // Clear user token and user data from localStorage
     localStorage.removeItem('id_token');
     // this will reload the page and reset the state of the application
-    window.location.reload();
+    window.location.reload("/");
   }
 }
 

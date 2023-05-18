@@ -1,15 +1,36 @@
-.dashboard-container {
-    margin: 20px;
-  }
-  
+
   .section {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
    
+  }
+
+  .dashboard-title {
+    text-align: center;
+  }
+
+  .form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   
   .form {
+    border: 2px solid blue;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+    padding: 5px;
+  }
+
+  .input-title {
+    display: flex;
+    justify-content: center;
   }
   
   .form-group {
