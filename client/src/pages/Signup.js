@@ -27,17 +27,26 @@ const Signup = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
-
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
+      const mutationResponse = await addUser({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+          name: formState.name
+        },
       });
+      console.log(error);
+      const token = mutationResponse.data.addUser.token;
+      
+      Auth.login(token);
 
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+
     }
+    catch (e) {
+
+      console.log("there is an error " + e);
+  }
+
   };
 
   return (
