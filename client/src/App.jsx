@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./components/Landing";
 import Home from "./components/Home"
 import MapSearch from "./components/Map";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard";
 import './index.css';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -77,7 +77,9 @@ function App() {
 
         </div>
         </Router>
+    
       </ApolloProvider>
+      
   );
 };
 
