@@ -12,7 +12,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./components/Landing";
 import Home from "./components/Home"
 import MapSearch from "./components/Map";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard";
 import './index.css';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -62,14 +62,26 @@ function App() {
       <Router>
         <div className="flex-column justify-flex-start min-100-vh"></div>
        
-        <div className="container">
+        <div className="container"/>
           <Routes>
             <Route path="/" element={<Landing />} className="hover-underline-animation"/>
             <Route path="/TravelGo/Landing" element={<Landing />} className="hover-underline-animation"/>
             <Route path="/TravelGo/Home" element={<Home />}/>
+            <Route 
+            path="/TravelGo/Login" 
+            element={<Login />} 
+            className="hover-underline-animation"/>
+            <Route 
+            path="/TravelGo/Signup" 
+            element={<Signup />} 
+            className="hover-underline-animation"/>
           </Routes>
+          <div/>
+          <Footer />
         </Router>
+    
       </ApolloProvider>
+      
   );
 };
 
