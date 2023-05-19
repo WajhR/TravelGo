@@ -11,8 +11,11 @@ import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Home from "./components/Home"
+
 import MapSearch from "./pages/Map";
 import Dashboard from "./pages/Dashboard";
+
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Authpage from "./pages/Authpage";
@@ -77,7 +80,9 @@ function App() {
 
         </div>
         </Router>
+    
       </ApolloProvider>
+      
   );
 };
 
