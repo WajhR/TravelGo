@@ -16,13 +16,14 @@ import Dashboard from "./components/dashboard";
 import './index.css';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Footer from './components/Footer';
+import Authpage from "./components/Authpage";
+
 // import Header from "./components/Header";
 
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
-  uri: '/graphql',
+  uri: 'http://localhost:3001/graphql',
 });
 
 // Construct request middleware that will attach the JWT token to every request as an `authorization` header
@@ -60,24 +61,21 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh"></div>
-       
-        <div className="container"/>
+        <div className="flex-column justify-flex-start min-100-vh">
           <Routes>
             <Route path="/" element={<Landing />} className="hover-underline-animation"/>
-            <Route path="/TravelGo/Landing" element={<Landing />} className="hover-underline-animation"/>
-            <Route path="/TravelGo/Home" element={<Home />}/>
-            <Route 
-            path="/TravelGo/Login" 
-            element={<Login />} 
-            className="hover-underline-animation"/>
-            <Route 
-            path="/TravelGo/Signup" 
-            element={<Signup />} 
-            className="hover-underline-animation"/>
+            <Route path="/landing" element={<Landing />} className="hover-underline-animation"/>
+            <Route path="/home" element={<Home />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/map" element={<MapSearch />}/>
+            <Route path="/auth" element={<Authpage />}/>
+            <Route path="login" element={<Login />}/>
+            <Route path="signup" element={<Signup />}/>
+            {/* <Route path="/TravelGo/Logout" element={<Logout />}/> */}
+
           </Routes>
-          <div/>
-          <Footer />
+
+        </div>
         </Router>
     
       </ApolloProvider>

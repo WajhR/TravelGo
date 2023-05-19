@@ -19,7 +19,7 @@ const User = () => {
   const user = data?.me || data?.user || {};
   // navigate to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getUser().data.name === userParam) {
-    return <Navigate to="/me" />;
+    return <Navigate to="/TravelGo/Home" />;
   }
 
   if (loading) {

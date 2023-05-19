@@ -1,9 +1,8 @@
 import React from "react";
 import BlogPosts from "./BlogPosts";
 import TripPosts from "./TripPosts";
-import Navigation from "./Navigation";
+import Header from "./Header";
 import "../styles/Home.css";
-import "../styles/Header.css";
 
 const Home = () => {
   const posts = ["Post 1", "Post 2", "Post 3"]; //placeholder posts
@@ -11,7 +10,7 @@ const Home = () => {
 
   return (
     <div>
-      <Navigation />
+      <Header />
       <div className="home-container">
         <div className="column">
           <h2>Blog Posts</h2>
