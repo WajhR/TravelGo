@@ -1,5 +1,50 @@
+.map-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-title {
+    text-align: center;
+    color: lightskyblue;
+}
+
 .map-container {
     display: flex;
+    margin: 10px 0px 0px 0px;
     width: 50%;
     height: 50vh;
+    border: 5px solid white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 5px blue;
 }
+.places-container {
+    margin: 5px 0px 5px 0px;
+    position: relative;
+}
+
+.combobox-input {
+    font-size: 25px;
+    text-align: center;
+}
+
+.combobox-popover ul li {
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    border-bottom: 2px solid black;
+    list-style-type: none;
+    background-color: white;
+}
+
+.combobox-popover ul li:hover {
+    margin: 0px;
+    padding: 0px;
+    cursor: pointer;
+    border-bottom: 2px solid black;
+    list-style-type: none;
+    background-color: lightblue;
+}
+
+
