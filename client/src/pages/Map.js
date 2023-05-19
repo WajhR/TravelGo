@@ -33,20 +33,22 @@ function Map() {
     return (
         <>
             <Header />
+            <h1 className="map-title">Search For A Place To Go!</h1>
+            <section className="map-wrapper">
+                <div className="places-container">
+                    <PlacesAutocomplete setSelected={setSelected} />
+                </div>
 
-            <div className="places-container">
-                <PlacesAutocomplete setSelected={setSelected} />
+                <GoogleMap
+                zoom={2}
+                center={center}
+                mapContainerClassName="map-container"
+                >
+                {selected && <MarkerF position={selected}/>}
 
-            </div>
-            <GoogleMap
-            zoom={10}
-            center={center}
-            mapContainerClassName="map-container"
-            >
-            {selected && <MarkerF position={selected} />}
+                </GoogleMap>
 
-            </GoogleMap>
-            <Footer />
+            </section>
         </>
     )
 }
@@ -75,8 +77,8 @@ const PlacesAutocomplete = ({ setSelected }) => {
         disabled={!ready}
         className="combobox-input" 
         placeholder="Search" />
-        <ComboboxPopover>
-            <ComboboxList>
+        <ComboboxPopover className="combobox-popover">
+            <ComboboxList className="listbox">
                 {status === "OK" && 
                 data.map(({place_id, description}) => <ComboboxOption 
                 key={place_id} value={description} />)}
