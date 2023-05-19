@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8f50dffc.css",
+    "main.js": "/static/js/main.0881443b.js",
+    "static/media/Travelgo2.jpg": "/static/media/Travelgo2.4094c02b469d48da4dfb.jpg",
+    "static/media/Travelgo1.jpg": "/static/media/Travelgo1.ebe022b6df0c82aeec72.jpg",
+    "static/media/mountains.png": "/static/media/mountains.740fd82feb92d52879b1.png",
+    "static/media/airplane.png": "/static/media/airplane.c1b576784d1a7e25d77f.png",
+    "index.html": "/index.html",
+    "main.8f50dffc.css.map": "/static/css/main.8f50dffc.css.map",
+    "main.0881443b.js.map": "/static/js/main.0881443b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f50dffc.css",
+    "static/js/main.0881443b.js"
+  ]
+}
