@@ -2,7 +2,33 @@
     display: flex;
 }
 
+.auth-background {
+    width: 100%;
+    height: 100vh;
+}
+
 .auth-button-wrap {
-    
-    position: absolute
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
+.auth-button {
+    margin: 5px;
+    padding: 5px;
+    font-size: 50px;
+    height: 50;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    color: white;
+}
+
+.auth-button:hover {
+    background-color: #11b3e4;
+    border-radius: 5px;
 }

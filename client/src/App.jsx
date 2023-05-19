@@ -9,14 +9,17 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Landing from "./components/Landing";
+import Landing from "./pages/Landing";
 import Home from "./components/Home"
-import MapSearch from "./components/Map";
-import Dashboard from "./components/dashboard";
-import './index.css';
+
+import MapSearch from "./pages/Map";
+import Dashboard from "./pages/Dashboard";
+
+
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Authpage from "./components/Authpage";
+import Authpage from "./pages/Authpage";
+import './index.css';
 
 // import Header from "./components/Header";
 
