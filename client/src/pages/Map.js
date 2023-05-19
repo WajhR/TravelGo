@@ -17,7 +17,7 @@ import Footer from "../components/Footer"
 
 export default function MapSearch () {
     const { isLoaded } = useLoadScript({
-        googleMapsApiKey: "AIzaSyA-0KoefcNiuHM6oWPJvCgSePDX2TEbx1I",
+        googleMapsApiKey: REACT_APP_GOOGLE_MAPS_API_KEY,
         libraries: ["places"],
     });
 
