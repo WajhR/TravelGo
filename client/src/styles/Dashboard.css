@@ -1,7 +1,6 @@
 
-  .section {
+  .dashboard-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
    
   }
@@ -18,34 +17,68 @@
   }
   
   .form {
-    border: 2px solid blue;
+    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     padding: 5px;
+    color :white;
   }
 
   .input-title {
     display: flex;
     justify-content: center;
   }
+
+  .plan-a-trip-field{
+    border: 5px solid white;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    background-color: rgba(0, 0, 255, 0.5);
+    box-shadow: 0px 0px 5px 5px blue;
+  }
+
+  .trip-input-title {
+    margin: 5px;
+  }
+
+  .plan-trip-legend {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+  }
   
   .form-group {
     margin-bottom: 10px;
   }
   
-  .input-field {
+  .trip-input-field {
+    text-align: left;
     padding: 5px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    overflow-y: scroll;
+
   }
   
   .attraction-list {
     list-style: none;
     padding-left: 0;
+  }
+
+  .dashboard-background {
+    width: 100%;
+    height: 100vh;
   }
   
   .add-button,
@@ -53,7 +86,6 @@
   .plan-button,
   .view-button {
     padding: 5px 5px;
-    background-color: #007bff;
     color: #920e0e;
     border: none;
     border-radius: 4px;

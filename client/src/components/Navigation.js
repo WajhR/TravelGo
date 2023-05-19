@@ -10,7 +10,6 @@ const Navigation = () => {
       <Link to="/dashboard" className="hover-underline-animation nav-a">Dashboard</Link>
       <Link to="/map" className="hover-underline-animation nav-a">Map</Link>
       <Link as={Link} to="/trips" className="hover-underline-animation nav-a">Trips</Link>
-      <Link as={Link} to="/blogposts" className="hover-underline-animation nav-a">Blogposts</Link>
       <Link as={Link} to="/" className="hover-underline-animation nav-a">Logout</Link>
     </nav>
     )
